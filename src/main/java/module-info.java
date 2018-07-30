@@ -5,6 +5,5 @@ module selenium.java10.reproducer {
 	requires org.openqa.selenium.core;
 	requires org.openqa.selenium.firefox;
 	requires org.openqa.selenium.remote;
-	requires selenium.support;
 
 }

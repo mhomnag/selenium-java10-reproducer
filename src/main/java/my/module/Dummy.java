@@ -1,27 +1,22 @@
 package my.module;
 
-import java.time.Duration;
-
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Dummy {
 
-	public static void main(String... args) {
+	public static void main(String... args) throws Exception {
 		RemoteWebDriver driver = new FirefoxDriver();
 		driver.get("https://www.google.at");
 
-		WebElement element = new WebDriverWait(driver, 30)
-				.withTimeout(Duration.ofSeconds(30))
-				.pollingEvery(Duration.ofMillis(500))
-				.ignoring(NoSuchElementException.class)
-				.ignoring(StaleElementReferenceException.class)
-				.until(driver -> driver.findElement("lst-ib"));
+		Thread.sleep(10000);
 
+		WebElement element = driver.findElement(By.id("lst-ib"));
+		element.sendKeys("google");
+		element.sendKeys(Keys.ENTER);
 	}
 
 }
