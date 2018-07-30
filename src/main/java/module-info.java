@@ -1,9 +1,11 @@
 module selenium.java10.reproducer {
 
-    exports my.module;
+	exports my.module;
 
-    requires selenium.api;
-    requires selenium.chrome.driver;
-    requires selenium.remote.driver;
+	requires org.openqa.selenium.core;
+	requires org.openqa.selenium.firefox;
+	requires org.openqa.selenium.remote;
+	requires selenium.support;
+	requires selenium.java;
 
 }
